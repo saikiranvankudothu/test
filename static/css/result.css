@@ -522,7 +522,7 @@ body.dark .shimmer {
 
 /* SUMMARY & MINDMAP */
 #summaryBox,
-#mindmap_code {
+/* #mindmap_code {
   background: var(--card-light);
   padding: 24px;
   border-radius: 12px;
@@ -533,6 +533,10 @@ body.dark .shimmer {
   white-space: pre-wrap;
   word-wrap: break-word;
   box-shadow: var(--shadow-sm);
+} */
+
+#mindmap_code {
+  display: none;
 }
 
 body.dark #summaryBox,
@@ -541,6 +545,15 @@ body.dark #mindmap_code {
   border-color: var(--border-dark);
 }
 
+/* #mindmap_preview {
+  background: var(--card-light);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  margin-top: 16px;
+  box-shadow: var(--shadow-sm);
+} */
+
 #mindmap_preview {
   background: var(--card-light);
   padding: 24px;
@@ -548,6 +561,13 @@ body.dark #mindmap_code {
   border: 1px solid var(--border-light);
   margin-top: 16px;
   box-shadow: var(--shadow-sm);
+
+  height: calc(100vh - 220px);
+  overflow: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body.dark #mindmap_preview {
@@ -571,4 +591,20 @@ body.dark #mindmap_preview {
 .empty-state p {
   margin: 8px 0;
   font-size: 14px;
+}
+/* MIND MAP ZOOM + PAN */
+
+#mindmap_preview {
+  overflow: hidden;
+  cursor: grab;
+}
+
+#mindmap_preview:active {
+  cursor: grabbing;
+}
+
+.mindmap-canvas {
+  transform-origin: 0 0;
+  transition: transform 0.05s linear;
+  user-select: none;
 }
